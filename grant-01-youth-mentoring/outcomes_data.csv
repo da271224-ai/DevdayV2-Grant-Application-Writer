@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G01,Children enrolled,60,58,people,Enrollment register,2025-06-28,Synthetic sample only; not measured or verified
+TP-G01,Children completing 30 mentoring contacts,48,46,people,Mentor contact logs,2025-06-28,Synthetic sample only; not measured or verified
+TP-G01,Completers improving on a selected measure,70,72,percent,"Baseline/closeout survey, percent",2025-06-28,Synthetic sample only; not measured or verified
+TP-G01,Caregivers receiving monthly outreach,60,55,people,Caregiver contact log,2025-06-28,Synthetic sample only; not measured or verified

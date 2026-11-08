@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G08,Families enrolled,55,54,people,Family intake register,2025-09-28,Synthetic sample only; not measured or verified
+TP-G08,Families completing support plan,44,45,people,Plan review log,2025-09-28,Synthetic sample only; not measured or verified
+TP-G08,Caregivers reporting increased confidence,75,79,percent,"Intake/closeout survey, percent",2025-09-28,Synthetic sample only; not measured or verified
+TP-G08,Youth identifying help option,70,73,percent,"Workshop post-check, percent",2025-09-28,Synthetic sample only; not measured or verified

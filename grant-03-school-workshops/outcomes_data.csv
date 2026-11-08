@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G03,Partner schools,8,8,people,Executed school MOUs,2025-10-28,Synthetic sample only; not measured or verified
+TP-G03,Students reached,400,412,people,Site attendance totals,2025-10-28,Synthetic sample only; not measured or verified
+TP-G03,Students identifying two help options,80,83,percent,"Post-session check, percent",2025-10-28,Synthetic sample only; not measured or verified
+TP-G03,Caregivers reached,80,76,people,Workshop attendance,2025-10-28,Synthetic sample only; not measured or verified

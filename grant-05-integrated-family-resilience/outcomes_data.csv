@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G05,Children and families served,120,117,people,Unique participant register,2025-09-28,Synthetic sample only; not measured or verified
+TP-G05,Children completing planned pathway,90,92,people,Support-plan completion log,2025-09-28,Synthetic sample only; not measured or verified
+TP-G05,Children improving a selected measure,70,71,percent,"Baseline/closeout tool, percent",2025-09-28,Synthetic sample only; not measured or verified
+TP-G05,Caregivers reporting resource awareness,75,78,percent,"Closeout survey, percent",2025-09-28,Synthetic sample only; not measured or verified

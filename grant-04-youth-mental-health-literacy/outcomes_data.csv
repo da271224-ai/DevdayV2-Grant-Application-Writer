@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G04,Adolescents enrolled,200,194,people,Enrollment register,2025-06-28,Synthetic sample only; not measured or verified
+TP-G04,Youth completing four sessions,150,153,people,Attendance records,2025-06-28,Synthetic sample only; not measured or verified
+TP-G04,Completers improving literacy/confidence,75,77,percent,"Pre/post questionnaire, percent",2025-06-28,Synthetic sample only; not measured or verified
+TP-G04,Caregivers reached,80,84,people,Session attendance,2025-06-28,Synthetic sample only; not measured or verified

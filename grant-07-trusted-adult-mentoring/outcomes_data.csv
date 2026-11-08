@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G07,Children matched,70,69,people,Match register,2025-06-28,Synthetic sample only; not measured or verified
+TP-G07,Children completing 25 contacts,56,58,people,Mentor logs,2025-06-28,Synthetic sample only; not measured or verified
+TP-G07,Completers improving a selected measure,70,74,percent,"Baseline/closeout survey, percent",2025-06-28,Synthetic sample only; not measured or verified
+TP-G07,Caregivers understanding mentor role,80,82,percent,"Closeout survey, percent",2025-06-28,Synthetic sample only; not measured or verified

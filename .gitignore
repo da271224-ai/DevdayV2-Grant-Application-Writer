@@ -1,0 +1,28 @@
+# Local credentials and environment files
+.env
+.env.*
+*.env
+*.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+secrets/
+.openai/
+.netrc
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local runs. Curated synthetic snapshots are in demo/.
+/grant_application_writer/outputs/
+/DevdayV2_3.0.zip
+

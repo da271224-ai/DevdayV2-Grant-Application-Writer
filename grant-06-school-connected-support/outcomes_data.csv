@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G06,Children enrolled,80,78,people,Enrollment register,2025-12-28,Synthetic sample only; not measured or verified
+TP-G06,Children completing 24 contacts,64,62,people,Mentor contact logs,2025-12-28,Synthetic sample only; not measured or verified
+TP-G06,Families completing two provider sessions,50,47,people,Aggregate partner confirmation,2025-12-28,Synthetic sample only; not measured or verified
+TP-G06,Children improving selected measure,70,73,percent,"Pre/post questionnaire, percent",2025-12-28,Synthetic sample only; not measured or verified

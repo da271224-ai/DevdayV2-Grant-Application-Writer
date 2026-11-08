@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G10,Children enrolled,100,98,people,Enrollment register,2025-06-28,Synthetic sample only; not measured or verified
+TP-G10,Children completing planned pathway,80,82,people,Support-plan completion log,2025-06-28,Synthetic sample only; not measured or verified
+TP-G10,Children improving selected measure,70,72,percent,"Baseline/closeout questionnaire, percent",2025-06-28,Synthetic sample only; not measured or verified
+TP-G10,Caregivers knowing how to request support,75,77,percent,"Closeout survey, percent",2025-06-28,Synthetic sample only; not measured or verified

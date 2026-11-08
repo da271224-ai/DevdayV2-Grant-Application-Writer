@@ -1,0 +1,1288 @@
+{
+  "mode": "full_application",
+  "status": "fail",
+  "grant_id": "TP-G01",
+  "budget": {
+    "categories": {
+      "Program coordinator (part-time incl. benefits)": "28000.00",
+      "Mentor training, background checks and supervision": "12000.00",
+      "Activity materials and child-development resources": "8000.00",
+      "Family transportation and participation support": "8000.00",
+      "Evaluation, data management and reporting": "7000.00",
+      "Site, insurance and allocated administration": "12000.00"
+    },
+    "total": "75000.00",
+    "currency": "USD"
+  },
+  "sections": [
+    {
+      "name": "Statement of Goals",
+      "body": "Tentatively, The proposed mentoring project aims to strengthen the well-being, school connection, and social-emotional skills of participating children. The proposed project aims to serve 60 Miami-Dade County children. The proposed project would serve children in elementary and middle school and engage their caregivers.",
+      "claims": [
+        {
+          "text": "The proposed mentoring project aims to strengthen the well-being, school connection, and social-emotional skills of participating children.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-GOAL"
+        },
+        {
+          "text": "The proposed project aims to serve 60 Miami-Dade County children.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-REACH"
+        },
+        {
+          "text": "The proposed project would serve children in elementary and middle school and engage their caregivers.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-PARTICIPANTS"
+        }
+      ],
+      "missing_information": [
+        "Specific timeline and schedule for mentoring activities",
+        "Measurable outcome targets beyond serving 60 children (assessment metrics and target effect sizes)",
+        "Recruitment and retention plans for children and caregivers",
+        "Details on frequency and format of caregiver engagement"
+      ],
+      "generation_notes": [
+        "Used evidence items in relevance order and included each exact evidence sentence as a body span.",
+        "Statements are presented as tentative; body contains exact quoted spans for factual claims."
+      ],
+      "required_information_gaps": [
+        "service_population"
+      ],
+      "recommendations_for_review": [],
+      "section_name": "Statement of Goals",
+      "explicit_requirements": {
+        "service_population": "Proposed work must serve Miami-Dade County children and caregivers."
+      },
+      "review": {
+        "section_name": "Statement of Goals",
+        "attempts": 1,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Statement of Goals",
+            "detail": "TP-G01-PLAN-GOAL: The proposed mentoring project aims to strengthen the well-being, school connection, and social-emotional skills of participating children."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Statement of Goals",
+            "detail": "TP-G01-PLAN-REACH: The proposed project aims to serve 60 Miami-Dade County children."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Statement of Goals",
+            "detail": "TP-G01-PLAN-PARTICIPANTS: The proposed project would serve children in elementary and middle school and engage their caregivers."
+          }
+        ],
+        "semantic": [
+          {
+            "status": "review_required",
+            "code": "semantic_not_revalidated",
+            "location": "Statement of Goals",
+            "detail": "No reusable semantic result matches this field and the current verifier inputs."
+          }
+        ],
+        "semantic_checked": false,
+        "claim_assessments": [],
+        "coverage": [],
+        "api_diagnostics": [],
+        "semantic_version": null,
+        "semantic_fingerprint": null,
+        "semantic_reused": false
+      },
+      "status": "review_required"
+    },
+    {
+      "name": "Implementation",
+      "body": "The proposed project aims to serve 60 Miami-Dade County children. The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team. The proposed grant period is 2024-07-01 through 2025-06-28. Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+      "claims": [
+        {
+          "text": "The proposed project aims to serve 60 Miami-Dade County children.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-REACH"
+        },
+        {
+          "text": "The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-MENTORING"
+        },
+        {
+          "text": "The proposed grant period is 2024-07-01 through 2025-06-28.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-PERIOD"
+        },
+        {
+          "text": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        }
+      ],
+      "missing_information": [
+        "Planned sequence and timeline of mentoring activities within the 2024-07-01 through 2025-06-28 grant period.",
+        "Specific procedures for screening mentors (e.g., background checks, reference checks), and the documented criteria used for screening.",
+        "Details of mentor training content, duration, delivery method, and who will provide training.",
+        "Planned ongoing mentor support, supervision, and performance monitoring processes.",
+        "Frequency, typical session length, setting, and mentor-to-child ratios for mentoring interactions.",
+        "Eligibility criteria and recruitment strategy for the 60 children and any caregiver engagement plans.",
+        "Monitoring, evaluation, and success metrics to track participant progress and program effectiveness."
+      ],
+      "generation_notes": [
+        "Ordered body to lead with project-specific plans: proposed reach, mentor pairing, and grant dates, then organizational background.",
+        "Included only information present in supplied evidence items TP-G01-PLAN-REACH, TP-G01-PLAN-MENTORING, TP-G01-PLAN-PERIOD, and TF-001, and phrased proposed items cautiously.",
+        "Preserved the three locked proposed_project_plan claims verbatim in the claims array and included the verified organizational fact TF-001.",
+        "Addressed retry_failure_details by removing unsupported meta-statements about omissions from the body and instead listing needed operational details in missing_information.",
+        "Did not infer or assert sequencing, screening/training procedures, or use of Tidepath services within the proposed grant beyond the exact supplied texts."
+      ],
+      "required_information_gaps": [],
+      "recommendations_for_review": [
+        "Provide a detailed sequence/timeline of mentoring activities and when key milestones (intake, matching, regular sessions, progress reviews) will occur within 2024-07-01 to 2025-06-28.",
+        "Submit documented mentor screening protocols (background checks, references, eligibility criteria) and who will conduct them.",
+        "Share mentor training curriculum, hours, trainers, and how competence will be assessed before mentors begin working with children.",
+        "Describe ongoing mentor support and supervision plans, including frequency of check-ins, coaching, and escalation procedures.",
+        "Specify session frequency, typical session length, settings (in-person, virtual, school-based, community), and target mentor-to-child ratios.",
+        "Clarify child eligibility and recruitment procedures for the 60 Miami-Dade County children and any caregiver outreach or involvement plans.",
+        "Provide monitoring and evaluation plans with specific metrics, data-collection methods, and reporting cadence."
+      ],
+      "section_name": "Implementation",
+      "explicit_requirements": {},
+      "review": {
+        "section_name": "Implementation",
+        "attempts": 3,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Implementation",
+            "detail": "TP-G01-PLAN-REACH: The proposed project aims to serve 60 Miami-Dade County children."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Implementation",
+            "detail": "TP-G01-PLAN-MENTORING: The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Implementation",
+            "detail": "TP-G01-PLAN-PERIOD: The proposed grant period is 2024-07-01 through 2025-06-28."
+          }
+        ],
+        "semantic": [],
+        "semantic_checked": true,
+        "claim_assessments": [
+          {
+            "claim_id": "1",
+            "status": "supported",
+            "quote": "The proposed project aims to serve 60 Miami-Dade County children.",
+            "detail": "The cited evidence (TP-G01-PLAN-REACH) contains the same proposed statement and is labeled as a proposed project plan; the claim is directly supported by that source.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "2",
+            "status": "supported",
+            "quote": "The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team.",
+            "detail": "The cited evidence (TP-G01-PLAN-MENTORING) contains the identical proposed program description; the claim is directly supported as a proposed plan. It does not, however, specify operational details (see coverage).",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "3",
+            "status": "supported",
+            "quote": "The proposed grant period is 2024-07-01 through 2025-06-28.",
+            "detail": "The cited evidence (TP-G01-PLAN-PERIOD) states the same proposed grant period; the claim is directly supported as a proposed plan.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "4",
+            "status": "supported",
+            "quote": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "The cited evidence (TF-001) is an approved organizational fact that contains the same description of Tidepath's supports; the claim is directly supported.",
+            "statement_type": "factual_assertion"
+          }
+        ],
+        "coverage": [
+          {
+            "question": "What mentoring activities are proposed and in what sequence?",
+            "status": "partial",
+            "quote": "The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team.",
+            "detail": "The body specifies pairing children with mentors or mentor teams but does not describe specific mentoring activities (e.g., types of mentor-child interactions, curricula, workshop content) nor the sequence/timeline of activities, session frequency, duration, or milestones. Missing: a step-by-step sequence of mentoring activities, schedule, and activity descriptions.",
+            "origin": "inferred"
+          },
+          {
+            "question": "How will mentors be screened, trained, and supported?",
+            "status": "partial",
+            "quote": "The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team.",
+            "detail": "The text indicates mentors will be 'screened' and 'trained' but provides no details on screening methods (background checks, criteria), training content, duration, trainers, or how mentors will be supported/supervised during implementation. Missing: screening procedures, training curriculum and length, ongoing support/supervision plans, and quality assurance mechanisms.",
+            "origin": "inferred"
+          }
+        ],
+        "api_diagnostics": [
+          "Attempt 1, semantic_invalid_response: Coverage assessment did not quote the draft."
+        ],
+        "semantic_version": "1",
+        "semantic_fingerprint": "dca86fdd60891f3f01564ce12859bbdfbb65ce2a67ef4b9989e095eefa843256",
+        "semantic_reused": true
+      },
+      "status": "review_required"
+    },
+    {
+      "name": "Activities Measures",
+      "body": "The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team. Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+      "claims": [
+        {
+          "text": "The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-MENTORING"
+        },
+        {
+          "text": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        }
+      ],
+      "missing_information": [
+        "Which activities or participation outputs will be tracked?",
+        "How will those activities be recorded?"
+      ],
+      "generation_notes": [
+        "Used provided evidence in relevance order and preserved locked claims exactly as supplied.",
+        "Removed the prior uncited assertion about omitted tracking details and instead listed tracking/recording questions as missing information, because the supplied plan text (TP-G01-PLAN-MENTORING) only describes mentor pairing and does not specify tracking or recording methods.",
+        "Claims map directly to exact body spans for the two preserved sentences.",
+        "Coverage questions could not be answered from supplied evidence alone; those items are surfaced in missing_information."
+      ],
+      "required_information_gaps": [],
+      "recommendations_for_review": [
+        "Specify which participation outputs will be tracked (for example: match start/end dates, session attendance, session frequency, duration of match) and how each will be defined.",
+        "Specify how activities will be recorded (for example: attendance logs, a case-management database, staff roles responsible for data entry, data retention and privacy practices).",
+        "Provide proposed data-collection cadence and staff responsibilities for tracking and reporting participation outputs."
+      ],
+      "section_name": "Activities Measures",
+      "explicit_requirements": {},
+      "review": {
+        "section_name": "Activities Measures",
+        "attempts": 2,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Activities Measures",
+            "detail": "TP-G01-PLAN-MENTORING: The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team."
+          }
+        ],
+        "semantic": [],
+        "semantic_checked": true,
+        "claim_assessments": [
+          {
+            "claim_id": "1",
+            "status": "supported",
+            "quote": "The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team.",
+            "detail": "Supported by the cited proposed_project_plan evidence (TP-G01-PLAN-MENTORING) which explicitly states this as a proposed program design. Note: the evidence describes a proposed plan (not an approved or historical activity).",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "2",
+            "status": "supported",
+            "quote": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "Supported by the cited verified_organizational_fact evidence (TF-001), which is approved and states these organizational support activities.",
+            "statement_type": "factual_assertion"
+          }
+        ],
+        "coverage": [
+          {
+            "question": "Which activities or participation outputs will be tracked?",
+            "status": "partial",
+            "quote": "The proposed program would pair each child with a screened, trained adult mentor or stable small-group mentor team. Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "The body lists program activities (mentoring, family counseling, school-based safety and mental-health workshops, and pairing each child with a screened/trained mentor or small-group mentor team). It does not specify which participation outputs or indicators will be tracked (for example: number of mentoring sessions attended per child, duration of mentoring relationships, participant demographics, attendance rates, completion/retention, referrals, pre/post outcome measures, or target values). Missing: explicit participation/output metrics and definitions.",
+            "origin": "inferred"
+          },
+          {
+            "question": "How will those activities be recorded?",
+            "status": "missing",
+            "quote": "",
+            "detail": "The body contains no information on how activities will be recorded or documented. Missing: data collection tools or systems (e.g., sign-in/attendance forms, case management or database platform), responsible staff, frequency of data entry, consent/privacy procedures, reporting formats, or quality-control/validation processes.",
+            "origin": "inferred"
+          }
+        ],
+        "api_diagnostics": [],
+        "semantic_version": "1",
+        "semantic_fingerprint": "a1083ee8dabc6c302ad9c1cb238826f181e220c90ee38331d2846ddee78ae866",
+        "semantic_reused": false
+      },
+      "status": "review_required"
+    },
+    {
+      "name": "Outreach & Engagement",
+      "body": "The proposed project aims to serve 60 Miami-Dade County children. The proposed project would serve children in elementary and middle school and engage their caregivers. Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops. To help reviewers assess projected reach and accessibility, please provide the planned outreach and enrollment steps and the proposed supports to encourage caregiver participation and to address caregiver participation barriers.",
+      "claims": [
+        {
+          "text": "The proposed project aims to serve 60 Miami-Dade County children.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-REACH"
+        },
+        {
+          "text": "The proposed project would serve children in elementary and middle school and engage their caregivers.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-PLAN-PARTICIPANTS"
+        },
+        {
+          "text": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        }
+      ],
+      "missing_information": [
+        "Planned outreach channels and specific enrollment steps for children and caregivers.",
+        "Details on how caregivers will be engaged, including supports to overcome participation barriers (e.g., scheduling, childcare, transportation, language access).",
+        "Project timeline with start/end dates and any planned mentor pairing or staffing that affects outreach and enrollment capacity."
+      ],
+      "generation_notes": [
+        "Used provided evidence in relevance order: TP-G01-PLAN-REACH, TP-G01-PLAN-PARTICIPANTS, then TF-001.",
+        "Preserved the three locked claims exactly as provided in the claims array and included their texts as body spans.",
+        "Removed the prior uncited assertion that the proposal omitted outreach/enrollment details; instead requested those specifics from the applicant to avoid asserting an absence of evidence.",
+        "Did not infer or state that Tidepath’s existing services will be used for this project; presented TF-001 as organizational background only.",
+        "Addressed coverage questions by requesting the missing outreach/enrollment and caregiver-participation details rather than asserting their absence."
+      ],
+      "required_information_gaps": [],
+      "recommendations_for_review": [
+        "Provide specific outreach channels (e.g., school referrals, community centers, faith-based organizations) and the outreach timeline and responsibilities.",
+        "Describe enrollment steps and paperwork, including consent procedures and any eligibility screening.",
+        "Describe proposed supports to increase caregiver participation and reduce barriers (e.g., flexible meeting times, childcare during sessions, transportation stipends, multilingual materials, virtual participation options).",
+        "If mentor pairing or staffing affects outreach capacity, provide the planned mentor-to-child ratio and pairing timeline."
+      ],
+      "section_name": "Outreach & Engagement",
+      "explicit_requirements": {},
+      "review": {
+        "section_name": "Outreach & Engagement",
+        "attempts": 2,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Outreach & Engagement",
+            "detail": "TP-G01-PLAN-REACH: The proposed project aims to serve 60 Miami-Dade County children."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Outreach & Engagement",
+            "detail": "TP-G01-PLAN-PARTICIPANTS: The proposed project would serve children in elementary and middle school and engage their caregivers."
+          },
+          {
+            "status": "review_required",
+            "code": "unverified_prose",
+            "location": "Outreach & Engagement",
+            "detail": "To help reviewers assess projected reach and accessibility, please provide the planned outreach and enrollment steps and the proposed supports to encourage caregiver participation and to address caregiver participation barriers."
+          }
+        ],
+        "semantic": [],
+        "semantic_checked": true,
+        "claim_assessments": [
+          {
+            "claim_id": "1",
+            "status": "supported",
+            "quote": "The proposed project aims to serve 60 Miami-Dade County children.",
+            "detail": "The cited evidence (TP-G01-PLAN-REACH) is the identical proposed-project statement. The item is an explicitly proposed plan (approval_status: proposed), so the evidence supports that this is the project's planned reach, but it should be interpreted as a plan (not an approved/historical outcome).",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "2",
+            "status": "supported",
+            "quote": "The proposed project would serve children in elementary and middle school and engage their caregivers.",
+            "detail": "The cited evidence (TP-G01-PLAN-PARTICIPANTS) is the same proposed-project wording. It explicitly states the planned participant age range and that caregivers will be engaged. As with Claim 1, this is documented as a proposed plan (approval_status: proposed).",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "3",
+            "status": "supported",
+            "quote": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "The cited evidence (TF-001) matches the claim and is recorded as an approved/verified organizational fact (approval_status: approved). Therefore the organizational support activities listed are supported by the provided evidence.",
+            "statement_type": "factual_assertion"
+          }
+        ],
+        "coverage": [
+          {
+            "question": "How will children and caregivers learn about and enter the program?",
+            "status": "missing",
+            "quote": "",
+            "detail": "The body does not describe how children and caregivers will learn about or enter the program. It states the planned reach and target ages but provides no outreach or enrollment steps (no channels or partners for outreach, no referral sources, no eligibility/enrollment workflow, consent procedures, outreach materials, timeline, or responsible staff). Reviewers would need specifics on outreach channels (e.g., school referrals, community partners, social media), enrollment steps (referral → screening → consent → intake), eligibility criteria, prioritization, and timeline.",
+            "origin": "inferred"
+          },
+          {
+            "question": "How will caregivers participate and barriers be addressed?",
+            "status": "partial",
+            "quote": "The proposed project would serve children in elementary and middle school and engage their caregivers. Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "The body indicates caregivers will be engaged and lists organizational supports (mentoring, family counseling, school-based workshops) that could facilitate caregiver involvement. However, it lacks operational details about caregiver participation and barrier mitigation: no description of how caregivers will be recruited/registered, what specific caregiver-facing activities or roles are planned, supports to enable participation (e.g., flexible scheduling, childcare, transportation, stipends, language services), how common barriers will be identified and addressed, and how caregiver attendance/engagement will be tracked. Reviewers need these specifics to assess feasibility and accessibility.",
+            "origin": "inferred"
+          }
+        ],
+        "api_diagnostics": [],
+        "semantic_version": "1",
+        "semantic_fingerprint": "2ae9eff5a4c827bfc2a6add444929b7727797d51bc3f21780df49d116ff433f9",
+        "semantic_reused": false
+      },
+      "status": "review_required"
+    },
+    {
+      "name": "Assessment",
+      "body": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.\n\nProposed target (Children enrolled): 60 people.\n\nProposed target (Children completing 30 mentoring contacts): 48 people.\n\nProposed target (Completers improving on a selected measure): 70 percent.\n\nProposed target (Caregivers receiving monthly outreach): 60 people.",
+      "claims": [
+        {
+          "text": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        },
+        {
+          "text": "Proposed target (Children enrolled): 60 people.",
+          "kind": "projected_outcome",
+          "evidence_id": "TP-G01-TARGET-1"
+        },
+        {
+          "text": "Proposed target (Children completing 30 mentoring contacts): 48 people.",
+          "kind": "projected_outcome",
+          "evidence_id": "TP-G01-TARGET-2"
+        },
+        {
+          "text": "Proposed target (Completers improving on a selected measure): 70 percent.",
+          "kind": "projected_outcome",
+          "evidence_id": "TP-G01-TARGET-3"
+        },
+        {
+          "text": "Proposed target (Caregivers receiving monthly outreach): 60 people.",
+          "kind": "projected_outcome",
+          "evidence_id": "TP-G01-TARGET-4"
+        }
+      ],
+      "missing_information": [
+        "Definition of the \"selected measure\" used to assess improvement and the instrument to be used.",
+        "Baseline values and timing for measuring change on the selected measure.",
+        "Specific dates, reporting cadence, and duration over which the proposed targets will be measured.",
+        "Data collection methods, storage, and responsible staff or roles for tracking contacts, outreach, and outcomes.",
+        "Confirmation details that all proposed activities will serve Miami-Dade County children and caregivers as required."
+      ],
+      "generation_notes": [
+        "Body text preserves exact evidence strings as distinct spans to allow direct citation of each provided evidence item.",
+        "Claims map each exact body span to its original evidence_id and kind in relevance order: TF-001 first, then TP-G01-TARGET-1 through TP-G01-TARGET-4.",
+        "Coverage questions 1 and 2 are partially addressed by listing the proposed targets; evidence does not specify measurement timing, instruments, baseline, reporting cadence, or how results will be operationally used, so those are listed as missing information.",
+        "Did not add or infer specific measurement dates, instruments, staff roles, or operational uses beyond what the supplied evidence supports."
+      ],
+      "required_information_gaps": [],
+      "recommendations_for_review": [
+        "Clarify the exact instrument and definition of the \"selected measure\" and the planned baseline collection date.",
+        "Specify the reporting cadence (for example, monthly counts and an end-of-project cumulative report) and the project period dates.",
+        "Identify who will collect and manage outcome data and what system will store it.",
+        "Confirm that all activities and targets explicitly apply to Miami-Dade County and, if relevant, specify target neighborhoods or schools."
+      ],
+      "section_name": "Assessment",
+      "explicit_requirements": {},
+      "review": {
+        "section_name": "Assessment",
+        "attempts": 1,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Assessment",
+            "detail": "TP-G01-TARGET-1: Proposed target (Children enrolled): 60 people."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Assessment",
+            "detail": "TP-G01-TARGET-2: Proposed target (Children completing 30 mentoring contacts): 48 people."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Assessment",
+            "detail": "TP-G01-TARGET-3: Proposed target (Completers improving on a selected measure): 70 percent."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Assessment",
+            "detail": "TP-G01-TARGET-4: Proposed target (Caregivers receiving monthly outreach): 60 people."
+          }
+        ],
+        "semantic": [],
+        "semantic_checked": true,
+        "claim_assessments": [
+          {
+            "claim_id": "1",
+            "status": "supported",
+            "quote": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "Evidence TF-001 (approved, verified_organizational_fact) contains the identical statement that Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "statement_type": "factual_assertion"
+          },
+          {
+            "claim_id": "2",
+            "status": "supported",
+            "quote": "Proposed target (Children enrolled): 60 people.",
+            "detail": "Evidence TP-G01-TARGET-1 (approval_status: proposed) states this proposed target verbatim. The evidence indicates this is a proposed target (not presented as historical or approved).",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "3",
+            "status": "supported",
+            "quote": "Proposed target (Children completing 30 mentoring contacts): 48 people.",
+            "detail": "Evidence TP-G01-TARGET-2 (approval_status: proposed) states this proposed target verbatim. The evidence indicates this is a proposed target (not presented as historical or approved).",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "4",
+            "status": "supported",
+            "quote": "Proposed target (Completers improving on a selected measure): 70 percent.",
+            "detail": "Evidence TP-G01-TARGET-3 (approval_status: proposed) states this proposed target verbatim. The evidence indicates this is a proposed target (not presented as historical or approved).",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "5",
+            "status": "supported",
+            "quote": "Proposed target (Caregivers receiving monthly outreach): 60 people.",
+            "detail": "Evidence TP-G01-TARGET-4 (approval_status: proposed) states this proposed target verbatim. The evidence indicates this is a proposed target (not presented as historical or approved).",
+            "statement_type": "proposed_plan"
+          }
+        ],
+        "coverage": [
+          {
+            "question": "How and when will outcomes be measured?",
+            "status": "missing",
+            "quote": "",
+            "detail": "The body does not describe how outcomes will be measured or when measurement will occur. Missing elements include: which specific measures or instruments will be used, baseline and endline timing, frequency of data collection, responsible staff, data quality procedures, and timelines/deadlines for measurement.",
+            "origin": "inferred"
+          },
+          {
+            "question": "How will the team use the results?",
+            "status": "missing",
+            "quote": "",
+            "detail": "The body provides no information on how the team will use results. Missing elements include: analysis plans, how findings will inform program adjustments, reporting or dissemination plans, decision-making processes tied to outcomes, and any timelines or responsible parties for acting on results.",
+            "origin": "inferred"
+          }
+        ],
+        "api_diagnostics": [],
+        "semantic_version": "1",
+        "semantic_fingerprint": "9deaabd2d5c326aad4babb08fff95cdb849df06ec0867d02ddb9ccfad1da08ea",
+        "semantic_reused": false
+      },
+      "status": "review_required"
+    },
+    {
+      "name": "Outcomes Measures",
+      "body": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops. Proposed target (Children enrolled): 60 people. Proposed target (Children completing 30 mentoring contacts): 48 people. Proposed target (Completers improving on a selected measure): 70 percent. Proposed target (Caregivers receiving monthly outreach): 60 people. Measures and data sources should be defined during planning (tentative).",
+      "claims": [
+        {
+          "text": "Proposed target (Children enrolled): 60 people.",
+          "kind": "projected_outcome",
+          "evidence_id": "TP-G01-TARGET-1"
+        },
+        {
+          "text": "Proposed target (Children completing 30 mentoring contacts): 48 people.",
+          "kind": "projected_outcome",
+          "evidence_id": "TP-G01-TARGET-2"
+        },
+        {
+          "text": "Proposed target (Completers improving on a selected measure): 70 percent.",
+          "kind": "projected_outcome",
+          "evidence_id": "TP-G01-TARGET-3"
+        },
+        {
+          "text": "Proposed target (Caregivers receiving monthly outreach): 60 people.",
+          "kind": "projected_outcome",
+          "evidence_id": "TP-G01-TARGET-4"
+        },
+        {
+          "text": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        }
+      ],
+      "missing_information": [
+        "Define the measurement instrument(s) for each target (e.g., enrollment registers, mentoring contact logs, selected standardized measure).",
+        "Specify timing and frequency of measurement for each target (baseline, intervals, endline).",
+        "Identify data sources and responsible staff for collection and verification.",
+        "Clarify the exact definition of “selected measure” used for the 70 percent improvement target.",
+        "Confirm geographic scope and timeframe for proposed activities in Miami-Dade County."
+      ],
+      "generation_notes": [
+        "Body includes exact preserved claim text spans for each supplied evidence item to tie assertions to evidence.",
+        "Observations about missing measurement details are listed in missing_information rather than asserted as verified facts.",
+        "Final sentence is intentionally tentative about measurement specification per applicant constraints and evidence scope."
+      ],
+      "required_information_gaps": [],
+      "recommendations_for_review": [],
+      "section_name": "Outcomes Measures",
+      "explicit_requirements": {},
+      "review": {
+        "section_name": "Outcomes Measures",
+        "attempts": 3,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Outcomes Measures",
+            "detail": "TP-G01-TARGET-1: Proposed target (Children enrolled): 60 people."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Outcomes Measures",
+            "detail": "TP-G01-TARGET-2: Proposed target (Children completing 30 mentoring contacts): 48 people."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Outcomes Measures",
+            "detail": "TP-G01-TARGET-3: Proposed target (Completers improving on a selected measure): 70 percent."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Outcomes Measures",
+            "detail": "TP-G01-TARGET-4: Proposed target (Caregivers receiving monthly outreach): 60 people."
+          },
+          {
+            "status": "review_required",
+            "code": "unverified_prose",
+            "location": "Outcomes Measures",
+            "detail": "Measures and data sources should be defined during planning (tentative)."
+          }
+        ],
+        "semantic": [
+          {
+            "status": "review_required",
+            "code": "semantic_not_revalidated",
+            "location": "Outcomes Measures",
+            "detail": "No reusable semantic result matches this field and the current verifier inputs."
+          }
+        ],
+        "semantic_checked": false,
+        "claim_assessments": [],
+        "coverage": [],
+        "api_diagnostics": [],
+        "semantic_version": null,
+        "semantic_fingerprint": null,
+        "semantic_reused": false
+      },
+      "status": "review_required"
+    },
+    {
+      "name": "Qualifications & Sustainability",
+      "body": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops. Claudette is the director and works with a program manager and part-time bookkeeper. The organization relies on about a dozen grants. These verified facts document direct-service programming and a small leadership and financial support structure. The evidence does not document how the proposed work would be sustained after this grant; the applicant should submit a concise sustainability plan that explains expected funding sources and any commitments that would replace grant support if needed.",
+      "claims": [
+        {
+          "text": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        },
+        {
+          "text": "Claudette is the director and works with a program manager and part-time bookkeeper.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-002"
+        },
+        {
+          "text": "The organization relies on about a dozen grants.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-003"
+        }
+      ],
+      "missing_information": [
+        "A concise sustainability plan for the proposed activities after the award, including expected funding sources and any commitments that would replace grant support if needed.",
+        "Clarification of staff roles and time allocation for the proposed work (e.g., program manager and director responsibilities and percent effort).",
+        "Confirmation of the intended geographic service area and target reach within Miami-Dade County.",
+        "A brief revenue/budget note showing how this grant would interact with the organization’s existing reliance on about a dozen grants."
+      ],
+      "generation_notes": [
+        "Used provided verified facts in relevance order (TF-001, TF-002, TF-003) and quoted each original sentence verbatim in the body to address the prior semantic_invalid_response.",
+        "Preserved the three verified organizational facts as locked claims with their original text, kind, and evidence IDs per instructions.",
+        "Addressed coverage questions by (1) identifying verified qualifications from the evidence and (2) noting that evidence does not document a post-grant sustainability plan.",
+        "Did not invent additional facts or numeric values; requested missing details in missing_information rather than asserting them.",
+        "Fixed the retry issue by explicitly including the original draft text in the body while keeping evidence IDs out of the narrative."
+      ],
+      "required_information_gaps": [],
+      "recommendations_for_review": [
+        "Request that the applicant submit a concise, dated sustainability plan that tentatively identifies likely funding sources, timelines for transition off grant support, and any pending or verbal commitments.",
+        "Ask the applicant to supply a brief staffing plan that tentatively indicates percent of time for Claudette, the program manager, and the part-time bookkeeper for the proposed project.",
+        "Encourage the applicant to clarify the target number of children and caregivers to be served within Miami-Dade County and any tentative partner schools or sites."
+      ],
+      "section_name": "Qualifications & Sustainability",
+      "explicit_requirements": {},
+      "review": {
+        "section_name": "Qualifications & Sustainability",
+        "attempts": 3,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "unverified_prose",
+            "location": "Qualifications & Sustainability",
+            "detail": "These verified facts document direct-service programming and a small leadership and financial support structure. The evidence does not document how the proposed work would be sustained after this grant; the applicant should submit a concise sustainability plan that explains expected funding sources and any commitments that would replace grant support if needed."
+          }
+        ],
+        "semantic": [
+          {
+            "status": "fail",
+            "code": "insufficient_evidence",
+            "location": "Qualifications & Sustainability",
+            "detail": "These verified facts document direct-service programming and a small leadership and financial support structure. | This sentence asserts a synthesis (that the verified facts document direct-service programming and a small leadership and financial support structure). Although related claims exist, this specific synthesized assertion in the body is not tied to a cited evidence item and therefore cannot be supported from the provided citations."
+          },
+          {
+            "status": "fail",
+            "code": "insufficient_evidence",
+            "location": "Qualifications & Sustainability",
+            "detail": "The evidence does not document how the proposed work would be sustained after this grant; | This is an uncited factual assertion about the absence of sustainability documentation. Because it is not linked to a specific cited evidence item, it cannot be independently verified here."
+          }
+        ],
+        "semantic_checked": true,
+        "claim_assessments": [
+          {
+            "claim_id": "1",
+            "status": "supported",
+            "quote": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "Supported by evidence TF-001, which is identical to the claim and is marked approved.",
+            "statement_type": "factual_assertion"
+          },
+          {
+            "claim_id": "2",
+            "status": "supported",
+            "quote": "Claudette is the director and works with a program manager and part-time bookkeeper.",
+            "detail": "Supported by evidence TF-002, which is identical to the claim and is marked approved.",
+            "statement_type": "factual_assertion"
+          },
+          {
+            "claim_id": "3",
+            "status": "supported",
+            "quote": "The organization relies on about a dozen grants.",
+            "detail": "Supported by evidence TF-003, which is identical to the claim and is marked approved.",
+            "statement_type": "factual_assertion"
+          },
+          {
+            "claim_id": "",
+            "status": "insufficient_evidence",
+            "quote": "These verified facts document direct-service programming and a small leadership and financial support structure.",
+            "detail": "This sentence asserts a synthesis (that the verified facts document direct-service programming and a small leadership and financial support structure). Although related claims exist, this specific synthesized assertion in the body is not tied to a cited evidence item and therefore cannot be supported from the provided citations.",
+            "statement_type": "uncited_assertion"
+          },
+          {
+            "claim_id": "",
+            "status": "insufficient_evidence",
+            "quote": "The evidence does not document how the proposed work would be sustained after this grant;",
+            "detail": "This is an uncited factual assertion about the absence of sustainability documentation. Because it is not linked to a specific cited evidence item, it cannot be independently verified here.",
+            "statement_type": "uncited_assertion"
+          },
+          {
+            "claim_id": "",
+            "status": "non_factual",
+            "quote": "the applicant should submit a concise sustainability plan that explains expected funding sources and any commitments that would replace grant support if needed.",
+            "detail": "This is a recommendation/request (actionable guidance) rather than a factual assertion; it therefore is classified as non_factual for the purposes of evidence assessment.",
+            "statement_type": "non_factual"
+          }
+        ],
+        "coverage": [
+          {
+            "question": "What verified qualifications support delivery?",
+            "status": "covered",
+            "quote": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops. Claudette is the director and works with a program manager and part-time bookkeeper.",
+            "detail": "The body includes verified organizational facts describing direct-service activities (mentoring, family counseling, school-based workshops) and a small leadership/financial support structure (director, program manager, part-time bookkeeper), which together support the question of qualifications to deliver services.",
+            "origin": "inferred"
+          },
+          {
+            "question": "How could the work continue after the grant?",
+            "status": "missing",
+            "quote": "The evidence does not document how the proposed work would be sustained after this grant; the applicant should submit a concise sustainability plan that explains expected funding sources and any commitments that would replace grant support if needed.",
+            "detail": "The body explicitly states that sustainability after this grant is not documented. Missing elements include a concise sustainability plan, identified expected funding sources, any firm or conditional commitments to replace grant support, timelines, and contingency strategies—none of which are provided or cited.",
+            "origin": "inferred"
+          }
+        ],
+        "api_diagnostics": [
+          "Attempt 2, semantic_invalid_response: Coverage assessment did not quote the draft."
+        ],
+        "semantic_version": "1",
+        "semantic_fingerprint": "f174c26229d5aeb479df09ef1547a29029f18ca75d7b229cc95a1bc8818874a8",
+        "semantic_reused": false
+      },
+      "status": "fail"
+    },
+    {
+      "name": "Advancing Equity",
+      "body": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops. To demonstrate how this project will advance equity for Miami‑Dade County children and caregivers, please provide a concise, time‑ordered project description that includes: the target population and proposed reach (number of children and caregivers); proposed start and end dates; how mentors will be paired with participants and any planned service schedule; the specific access barriers you intend to address; for each barrier, the concrete, measurable steps you will take to reduce it; and the metrics and methods you will use to track uptake, accessibility, and reach among families with the greatest need. Keep proposed steps tentative and describe how you will collect baseline and ongoing data to assess whether accessibility improves over time.",
+      "claims": [
+        {
+          "text": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        },
+        {
+          "text": "Tidepath supports children and families through mentoring",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        },
+        {
+          "text": "family counseling",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        },
+        {
+          "text": "school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        }
+      ],
+      "missing_information": [
+        "Target population definition (age ranges, neighborhoods, and eligibility criteria)",
+        "Proposed reach (exact number of children and caregivers to be served)",
+        "Proposed start and end dates for the project",
+        "Planned mentor pairing approach and service schedule",
+        "List of specific access barriers the project will address",
+        "Concrete, measurable steps for reducing each named barrier",
+        "Metrics and data collection methods to track uptake and accessibility"
+      ],
+      "generation_notes": [
+        "Used only the supplied verified organizational fact TF-001 to state existing services.",
+        "Removed the unsupported evaluative sentence from the previous draft and instead requested applicant-supplied specifics.",
+        "Asked for time-ordered, measurable project details (target population, reach, dates, mentor pairing, barriers, mitigation steps, and tracking) to address the prior 'insufficient_evidence' issue."
+      ],
+      "required_information_gaps": [],
+      "recommendations_for_review": [
+        "Consider including clear baseline measures and targets for uptake among highest-need families (for example, percent of referrals who enroll, attendance rates over time).",
+        "Consider describing concrete accessibility strategies and how each will be evaluated (for example, language access, transportation support, flexible scheduling, childcare during sessions).",
+        "If available, provide past service uptake data from similar programs to contextualize proposed reach and timelines."
+      ],
+      "section_name": "Advancing Equity",
+      "explicit_requirements": {},
+      "review": {
+        "section_name": "Advancing Equity",
+        "attempts": 2,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Advancing Equity",
+            "detail": "TF-001: Tidepath supports children and families through mentoring"
+          },
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Advancing Equity",
+            "detail": "TF-001: family counseling"
+          },
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Advancing Equity",
+            "detail": "TF-001: school-based safety and mental-health workshops."
+          },
+          {
+            "status": "review_required",
+            "code": "unverified_prose",
+            "location": "Advancing Equity",
+            "detail": "To demonstrate how this project will advance equity for Miami‑Dade County children and caregivers, please provide a concise, time‑ordered project description that includes: the target population and proposed reach (number of children and caregivers); proposed start and end dates; how mentors will be paired with participants and any planned service schedule; the specific access barriers you intend to address; for each barrier, the concrete, measurable steps you will take to reduce it; and the metrics and methods you will use to track uptake, accessibility, and reach among families with the greatest need. Keep proposed steps tentative and describe how you will collect baseline and ongoing data to assess whether accessibility improves over time."
+          }
+        ],
+        "semantic": [],
+        "semantic_checked": true,
+        "claim_assessments": [
+          {
+            "claim_id": "1",
+            "status": "supported",
+            "quote": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "Supported by evidence TF-001 (approved verified_organizational_fact), which states the same sentence verbatim.",
+            "statement_type": "factual_assertion"
+          },
+          {
+            "claim_id": "2",
+            "status": "supported",
+            "quote": "Tidepath supports children and families through mentoring",
+            "detail": "Supported by evidence TF-001, which explicitly includes this phrase as part of the approved organizational fact.",
+            "statement_type": "factual_assertion"
+          },
+          {
+            "claim_id": "3",
+            "status": "supported",
+            "quote": "family counseling",
+            "detail": "Supported by evidence TF-001, which explicitly lists family counseling in the approved organizational fact.",
+            "statement_type": "factual_assertion"
+          },
+          {
+            "claim_id": "4",
+            "status": "supported",
+            "quote": "school-based safety and mental-health workshops.",
+            "detail": "Supported by evidence TF-001, which explicitly lists school-based safety and mental-health workshops in the approved organizational fact.",
+            "statement_type": "factual_assertion"
+          }
+        ],
+        "coverage": [
+          {
+            "question": "Which access barriers does the design address?",
+            "status": "missing",
+            "quote": "",
+            "detail": "The body requests that the project description specify which access barriers it intends to address, but the provided text does not enumerate any actual access barriers for Miami-Dade County children and caregivers. Missing: a list of specific access barriers (e.g., transportation, language, cost, scheduling, digital access, stigma), and any indication which of these the design targets.",
+            "origin": "inferred"
+          },
+          {
+            "question": "What concrete steps will reduce those barriers?",
+            "status": "missing",
+            "quote": "",
+            "detail": "The body asks for concrete, measurable steps to reduce each barrier, but does not provide any steps. Missing: for each named barrier, the concrete actions, measurable targets, timelines, responsible parties, and how those steps will be operationalized and measured (e.g., outreach channels, reduced travel time targets, subsidized slots, hours of service, translation services, enrollment metrics).",
+            "origin": "inferred"
+          }
+        ],
+        "api_diagnostics": [],
+        "semantic_version": "1",
+        "semantic_fingerprint": "5d9ea31061d2946e044e038c5fc5dce1d4165efe840202588ca7e688cb50cad9",
+        "semantic_reused": false
+      },
+      "status": "review_required"
+    },
+    {
+      "name": "Financial Narrative",
+      "body": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops. The proposed budget totals $75,000.00. The proposed allocation for Program coordinator (part-time incl. benefits) is $28,000.00. The proposed allocation for Mentor training, background checks and supervision is $12,000.00. The proposed allocation for Activity materials and child-development resources is $8,000.00. The proposed allocation for Family transportation and participation support is $8,000.00. The proposed allocation for Evaluation, data management and reporting is $7,000.00. The proposed allocation for Site, insurance and allocated administration is $12,000.00. Coordinator funds are intended to support project management. Mentor training, background checks and supervision are intended to support mentor recruitment, training, and oversight. Activity materials and child-development resources are intended to support direct youth activities. Family transportation and participation support are intended to reduce barriers to participation. Evaluation, data management and reporting are intended to support monitoring and reporting. Site, insurance and allocated administration are intended as proportionate project administration and infrastructure.",
+      "claims": [
+        {
+          "text": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+          "kind": "verified_organizational_fact",
+          "evidence_id": "TF-001"
+        },
+        {
+          "text": "The proposed budget totals $75,000.00.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-TOTAL"
+        },
+        {
+          "text": "The proposed allocation for Program coordinator (part-time incl. benefits) is $28,000.00.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-1"
+        },
+        {
+          "text": "The proposed allocation for Mentor training, background checks and supervision is $12,000.00.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-2"
+        },
+        {
+          "text": "The proposed allocation for Activity materials and child-development resources is $8,000.00.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-3"
+        },
+        {
+          "text": "The proposed allocation for Family transportation and participation support is $8,000.00.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-4"
+        },
+        {
+          "text": "The proposed allocation for Evaluation, data management and reporting is $7,000.00.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-5"
+        },
+        {
+          "text": "The proposed allocation for Site, insurance and allocated administration is $12,000.00.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-6"
+        },
+        {
+          "text": "Coordinator funds are intended to support project management.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-1"
+        },
+        {
+          "text": "Mentor training, background checks and supervision are intended to support mentor recruitment, training, and oversight.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-2"
+        },
+        {
+          "text": "Activity materials and child-development resources are intended to support direct youth activities.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-3"
+        },
+        {
+          "text": "Family transportation and participation support are intended to reduce barriers to participation.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-4"
+        },
+        {
+          "text": "Evaluation, data management and reporting are intended to support monitoring and reporting.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-5"
+        },
+        {
+          "text": "Site, insurance and allocated administration are intended as proportionate project administration and infrastructure.",
+          "kind": "proposed_project_plan",
+          "evidence_id": "TP-G01-BUDGET-CATEGORY-6"
+        }
+      ],
+      "missing_information": [
+        "Percent of full-time equivalent and fringe detail for Program coordinator.",
+        "Breakdown of what is included in \"Site, insurance and allocated administration.\"",
+        "Clarify unit costs or quantities behind Activity materials and child-development resources.",
+        "Clarify whether family transportation funds will be used for vouchers, mileage reimbursement, or contracted transportation."
+      ],
+      "generation_notes": [
+        "Included exact quoted draft sentences for the organizational background, total budget, and each budget category to address the prior semantic_invalid_response feedback that coverage did not quote the draft.",
+        "Used evidence items in the provided relevance order: TP-G01-BUDGET-TOTAL, TP-G01-BUDGET-CATEGORY-1 through -6, then TF-001.",
+        "Created separate, short interpretive sentences tied to each budget category to explain intent and alignment with eligible activities while preserving original allocation text as quoted."
+      ],
+      "required_information_gaps": [],
+      "recommendations_for_review": [
+        "Confirm and, if desired, add the project service area (e.g., Miami‑Dade County) into the narrative for clarity.",
+        "Provide percent effort and fringe detail for the Program coordinator to validate allowable personnel costs.",
+        "Specify whether site, insurance and administration costs are treated as direct costs or an indirect cost allocation and provide supporting basis.",
+        "If family transportation will include third-party services or vouchers, provide sample unit costs or vendor estimates.",
+        "If any portion of services could be considered clinical treatment, document prior written approval or clarify that funds will not be used for clinical treatment."
+      ],
+      "section_name": "Financial Narrative",
+      "explicit_requirements": {},
+      "review": {
+        "section_name": "Financial Narrative",
+        "attempts": 2,
+        "deterministic": [
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-TOTAL: The proposed budget totals $75,000.00."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-1: The proposed allocation for Program coordinator (part-time incl. benefits) is $28,000.00."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-2: The proposed allocation for Mentor training, background checks and supervision is $12,000.00."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-3: The proposed allocation for Activity materials and child-development resources is $8,000.00."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-4: The proposed allocation for Family transportation and participation support is $8,000.00."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-5: The proposed allocation for Evaluation, data management and reporting is $7,000.00."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-6: The proposed allocation for Site, insurance and allocated administration is $12,000.00."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-1: Coordinator funds are intended to support project management."
+          },
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-1: Coordinator funds are intended to support project management."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-2: Mentor training, background checks and supervision are intended to support mentor recruitment, training, and oversight."
+          },
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-2: Mentor training, background checks and supervision are intended to support mentor recruitment, training, and oversight."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-3: Activity materials and child-development resources are intended to support direct youth activities."
+          },
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-3: Activity materials and child-development resources are intended to support direct youth activities."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-4: Family transportation and participation support are intended to reduce barriers to participation."
+          },
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-4: Family transportation and participation support are intended to reduce barriers to participation."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-5: Evaluation, data management and reporting are intended to support monitoring and reporting."
+          },
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-5: Evaluation, data management and reporting are intended to support monitoring and reporting."
+          },
+          {
+            "status": "review_required",
+            "code": "proposed_evidence",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-6: Site, insurance and allocated administration are intended as proportionate project administration and infrastructure."
+          },
+          {
+            "status": "review_required",
+            "code": "unsupported_wording",
+            "location": "Financial Narrative",
+            "detail": "TP-G01-BUDGET-CATEGORY-6: Site, insurance and allocated administration are intended as proportionate project administration and infrastructure."
+          }
+        ],
+        "semantic": [],
+        "semantic_checked": true,
+        "claim_assessments": [
+          {
+            "claim_id": "1",
+            "status": "supported",
+            "quote": "Tidepath supports children and families through mentoring, family counseling, and school-based safety and mental-health workshops.",
+            "detail": "The evidence item TF-001 (approved, verified_organizational_fact) contains the identical statement, supporting this organizational fact.",
+            "statement_type": "factual_assertion"
+          },
+          {
+            "claim_id": "2",
+            "status": "supported",
+            "quote": "The proposed budget totals $75,000.00.",
+            "detail": "The evidence item TP-G01-BUDGET-TOTAL (approval_status: proposed) contains the identical proposed-budget statement, directly supporting the claim as a proposed plan.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "3",
+            "status": "supported",
+            "quote": "The proposed allocation for Program coordinator (part-time incl. benefits) is $28,000.00.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-1 (approval_status: proposed) contains the identical proposed-allocation statement, supporting this budget line as proposed.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "4",
+            "status": "supported",
+            "quote": "The proposed allocation for Mentor training, background checks and supervision is $12,000.00.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-2 (approval_status: proposed) contains the identical proposed-allocation statement, supporting this budget line as proposed.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "5",
+            "status": "supported",
+            "quote": "The proposed allocation for Activity materials and child-development resources is $8,000.00.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-3 (approval_status: proposed) contains the identical proposed-allocation statement, supporting this budget line as proposed.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "6",
+            "status": "supported",
+            "quote": "The proposed allocation for Family transportation and participation support is $8,000.00.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-4 (approval_status: proposed) contains the identical proposed-allocation statement, supporting this budget line as proposed.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "7",
+            "status": "supported",
+            "quote": "The proposed allocation for Evaluation, data management and reporting is $7,000.00.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-5 (approval_status: proposed) contains the identical proposed-allocation statement, supporting this budget line as proposed.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "8",
+            "status": "supported",
+            "quote": "The proposed allocation for Site, insurance and allocated administration is $12,000.00.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-6 (approval_status: proposed) contains the identical proposed-allocation statement, supporting this budget line as proposed.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "9",
+            "status": "supported",
+            "quote": "Coordinator funds are intended to support project management.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-1 (approval_status: proposed) contains the identical intent statement linking the coordinator funds to project management, supporting this proposed use.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "10",
+            "status": "supported",
+            "quote": "Mentor training, background checks and supervision are intended to support mentor recruitment, training, and oversight.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-2 (approval_status: proposed) contains the identical intent statement linking these funds to mentor recruitment, training, and oversight, supporting this proposed use.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "11",
+            "status": "supported",
+            "quote": "Activity materials and child-development resources are intended to support direct youth activities.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-3 (approval_status: proposed) contains the identical intent statement linking these funds to direct youth activities, supporting this proposed use.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "12",
+            "status": "supported",
+            "quote": "Family transportation and participation support are intended to reduce barriers to participation.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-4 (approval_status: proposed) contains the identical intent statement linking these funds to reducing barriers to participation, supporting this proposed use.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "13",
+            "status": "supported",
+            "quote": "Evaluation, data management and reporting are intended to support monitoring and reporting.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-5 (approval_status: proposed) contains the identical intent statement linking these funds to monitoring and reporting, supporting this proposed use.",
+            "statement_type": "proposed_plan"
+          },
+          {
+            "claim_id": "14",
+            "status": "supported",
+            "quote": "Site, insurance and allocated administration are intended as proportionate project administration and infrastructure.",
+            "detail": "The evidence item TP-G01-BUDGET-CATEGORY-6 (approval_status: proposed) contains the identical intent statement linking these funds to project administration and infrastructure, supporting this proposed use.",
+            "statement_type": "proposed_plan"
+          }
+        ],
+        "coverage": [
+          {
+            "question": "What is the total request and how are funds allocated?",
+            "status": "covered",
+            "quote": "The proposed budget totals $75,000.00. The proposed allocation for Program coordinator (part-time incl. benefits) is $28,000.00. The proposed allocation for Mentor training, background checks and supervision is $12,000.00. The proposed allocation for Activity materials and child-development resources is $8,000.00. The proposed allocation for Family transportation and participation support is $8,000.00. The proposed allocation for Evaluation, data management and reporting is $7,000.00. The proposed allocation for Site, insurance and allocated administration is $12,000.00.",
+            "detail": "The body explicitly states the total proposed request ($75,000.00) and provides line-item proposed allocations for six budget categories. The line items sum to the stated total (28,000 + 12,000 + 8,000 + 8,000 + 7,000 + 12,000 = 75,000), so the allocation is fully specified at this level of detail.",
+            "origin": "inferred"
+          },
+          {
+            "question": "How do the proposed costs support eligible activities and respect restrictions?",
+            "status": "partial",
+            "quote": "Coordinator funds are intended to support project management. Mentor training, background checks and supervision are intended to support mentor recruitment, training, and oversight. Activity materials and child-development resources are intended to support direct youth activities. Family transportation and participation support are intended to reduce barriers to participation. Evaluation, data management and reporting are intended to support monitoring and reporting. Site, insurance and allocated administration are intended as proportionate project administration and infrastructure.",
+            "detail": "The body describes how each budget category is intended to support program activities (linking costs to eligible activities such as mentoring, youth activities, family participation, and monitoring). However, it does not document compliance with any funder-specific restrictions or allowability rules (e.g., justification of amounts, unit costs, methodology for allocated administration, or demonstration that administrative costs fall within any cap). To fully answer whether costs \"respect restrictions,\" the narrative would need explicit statements or evidence about allowability, cost reasonableness (rate bases or quotes), allocation methodology, and adherence to any applicable administrative caps or prohibited expense lists.",
+            "origin": "inferred"
+          }
+        ],
+        "api_diagnostics": [
+          "Attempt 1, semantic_invalid_response: Coverage assessment did not quote the draft."
+        ],
+        "semantic_version": "1",
+        "semantic_fingerprint": "17a4df3d1c45dbc08ff546caaa5ae01b6a2c3752b479f06bc640f100d1a15281",
+        "semantic_reused": true
+      },
+      "status": "review_required"
+    }
+  ],
+  "requirements": [],
+  "warnings": [
+    "Project dates are placeholders in funder_requirements.md; using award_budget.csv."
+  ],
+  "attachments_to_review": [
+    "Current organizational operating budget and board list (fictional test files may be used).",
+    "Itemized award budget and quarterly expense detail.",
+    "Program outcome summary and partner confirmation."
+  ]
+}

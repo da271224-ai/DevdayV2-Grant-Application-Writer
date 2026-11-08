@@ -1,0 +1,1 @@
+"""Offline grant application validation."""

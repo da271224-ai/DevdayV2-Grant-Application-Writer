@@ -1,0 +1,5 @@
+﻿grant_id,measure,target,synthetic_actual,unit,synthetic_source,measurement_date,data_status
+TP-G02,Families enrolled,50,48,people,Family intake register,2025-09-28,Synthetic sample only; not measured or verified
+TP-G02,Families completing at least two sessions,40,42,people,Provider aggregate service confirmation,2025-09-28,Synthetic sample only; not measured or verified
+TP-G02,Caregiver respondents reporting improved confidence,75,78,percent,"Intake/closeout survey, percent",2025-09-28,Synthetic sample only; not measured or verified
+TP-G02,Requested referral connections completed,70,68,percent,"Consent-based follow-up, percent",2025-09-28,Synthetic sample only; not measured or verified
