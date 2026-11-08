@@ -4,6 +4,12 @@ Nonprofits have to answer different funders' questions using the same limited st
 
 **Synthetic data. Human review required. Not submission-ready.** Tidepath Family Alliance and the supplied opportunities, budgets, outcomes, and organizational facts are fictional challenge fixtures. No real nonprofit or applicant data is required.
 
+## Demo video
+
+[Download the English demo video (MP4, 2:32, 1080p)](https://raw.githubusercontent.com/da271224-ai/DevdayV2-Grant-Application-Writer/main/demo_video/demo.mp4). The video uses recorded TP-G01 results and an offline replay, with English narration and captions.
+
+[Narration script](demo_video/narration_script.md) · [Storyboard](demo_video/storyboard.md)
+
 ## Workflow
 
 1. **Load the grant.** Python reads the funder rules, narrative limits, and budget files into a `RequirementSpec`.
