@@ -3,6 +3,7 @@
 from dataclasses import asdict, dataclass, replace
 import re
 
+from .evidence_builder import budget_narrative_field
 from .fact_verifier import NUMBER, mask_formatting, normalize, verify_facts
 from .models import ApprovalStatus, Application, Claim, EvidenceKind, EvidencePack, Issue, RequirementSpec, Section
 from .requirement_coverage import CoverageAssessment, explicit_requirements, field_questions
@@ -12,6 +13,20 @@ from .semantic_fact_verifier import SEMANTIC_VERSION, ClaimAssessment, semantic_
 
 
 QUALIFICATIONS_FIELD = "Qualifications & Sustainability"
+TP_G02_FIELD_GUIDANCE = {
+    "Program Summary": (
+        "For this field, write each sourced fact as a complete sentence using the supplied evidence text "
+        "verbatim in both the body and claims.text. Do not paraphrase the body while copying evidence into "
+        "claims. After drafting, check that each claims.text is an exact substring of the final body. "
+        "Keep unknown project design details in missing_information."
+    ),
+    "Equity and Access": (
+        "Treat the funder's service-population rule only as a requirement. Do not quote it in the body "
+        "or restate it as an applicant plan, promise, or fact. If project evidence does not establish "
+        "who will be served, report the service_population gap in required_information_gaps. Put "
+        "requests for access plans or enrollment details in missing_information or recommendations_for_review."
+    ),
+}
 QUALIFICATIONS_REVIEW_TEXT = re.compile(
     r"\b(?:the (?:available |provided )?(?:evidence|materials|sources|documentation) "
     r"(?:does not|do not) (?:document|establish|confirm|describe|show|specify|include|provide)"
@@ -91,6 +106,13 @@ def evidence_context(pack: EvidencePack) -> list[dict]:
 def validate_section(section: Section, spec: RequirementSpec, pack: EvidencePack) -> list[Issue]:
     draft = Application(spec.grant_id, (section,), spec.budget)
     issues = verify_facts(draft, pack)
+    if spec.grant_id == "TP-G02" and section.name == "Equity and Access":
+        requirement = explicit_requirements(spec, section.name).get("service_population")
+        if requirement and requirement.rstrip(".").casefold() in normalize(section.body).casefold():
+            issues.append(Issue(
+                "fail", "funder_rule_in_body", section.name,
+                f"Report this in required_information_gaps when unsupported by project evidence: {requirement}",
+            ))
     if section.name == QUALIFICATIONS_FIELD:
         for match in QUALIFICATIONS_REVIEW_TEXT.finditer(normalize(section.body)):
             issues.append(Issue(
@@ -112,10 +134,49 @@ def validate_section(section: Section, spec: RequirementSpec, pack: EvidencePack
 
 
 def required_budget_evidence(grant_id: str, name: str, pack: EvidencePack) -> tuple[str, ...]:
-    if name != "Financial Narrative":
+    if name != budget_narrative_field(grant_id):
         return ()
     return tuple(key for key in pack.entries if key == f"{grant_id}-BUDGET-TOTAL"
                  or key.startswith(f"{grant_id}-BUDGET-CATEGORY-"))
+
+
+def recover_budget_claim_spans(section: Section, pack: EvidencePack) -> Section:
+    """Recover corrupted TP-G02 allocation spans from unambiguous body text."""
+    if pack.grant_id != "TP-G02" or section.name != budget_narrative_field(pack.grant_id):
+        return section
+
+    claims = []
+    for claim in section.claims:
+        if "\0" in claim.text and claim.evidence_id.startswith("TP-G02-BUDGET-CATEGORY-"):
+            evidence = pack.entries.get(claim.evidence_id)
+            if evidence is not None and claim.kind == evidence.kind:
+                category = re.escape(evidence.source.record)
+                matches = re.findall(rf"(?<!\w){category} — \$[\d,]+\.\d{{2}}(?!\d|[.,]\d)", section.body)
+                if len(matches) == 1:
+                    claim = replace(claim, text=matches[0])
+        claims.append(claim)
+    return replace(section, claims=tuple(claims))
+
+
+def move_equity_review_requests(section: Section) -> Section:
+    """Move standalone, uncited reviewer requests without editing their text."""
+    paragraphs = re.split(r"(\n\s*\n)", section.body)
+    moved = []
+    for index in range(0, len(paragraphs), 2):
+        paragraph = paragraphs[index].strip()
+        if (
+            re.match(r"(?:to assess equity and access for this proposal,\s*)?please "
+                     r"(?:confirm|provide|clarify|describe|submit)\b", paragraph, re.I)
+            and not re.search(r"[.!?]\s+\S", paragraph)
+            and not any(normalize(claim.text) in normalize(paragraph) for claim in section.claims)
+        ):
+            moved.append(paragraph)
+            paragraphs[index] = ""
+    if not moved:
+        return section
+    return replace(section, body="".join(paragraphs).strip(), recommendations_for_review=tuple(
+        dict.fromkeys((*section.recommendations_for_review, *moved))
+    ))
 
 
 def generate_application(client, writer_model: str, verifier_model: str, spec: RequirementSpec,
@@ -131,6 +192,9 @@ def generate_application(client, writer_model: str, verifier_model: str, spec: R
     sections = []
     reviews = []
     for field in selected:
+        tp_g02_equity = spec.grant_id == "TP-G02" and field.name == "Equity and Access"
+        field_guidance = TP_G02_FIELD_GUIDANCE.get(field.name, "") if spec.grant_id == "TP-G02" else ""
+        is_budget_narrative = field.name == budget_narrative_field(spec.grant_id)
         scoped_pack = section_evidence(spec.grant_id, field.name, pack)
         entries = scoped_pack.entries
         evidence = evidence_context(scoped_pack)
@@ -159,7 +223,7 @@ def generate_application(client, writer_model: str, verifier_model: str, spec: R
             "explicit_requirements": requirements,
             "applicant_constraints": re.findall(r"^- Applicant: (.+)$", spec.source_text, re.M),
         }
-        if field.name == "Financial Narrative":
+        if is_budget_narrative:
             context["eligible_use"] = re.findall(r"^Eligible use: (.+)$", spec.source_text, re.M)
             context["required_budget_amount_evidence_ids"] = required_budget_evidence(spec.grant_id, field.name, scoped_pack)
 
@@ -206,7 +270,12 @@ def generate_application(client, writer_model: str, verifier_model: str, spec: R
                     "List only IDs from explicit_requirements in required_information_gaps. "
                     "Put optional improvements and inferred gaps in missing_information. "
                     "The body is counted by whitespace-delimited words."
-                    + (f" {QUALIFICATIONS_GUIDANCE}" if field.name == QUALIFICATIONS_FIELD else ""),
+                    + (" In Budget Narrative, introduce the allocations as proposed and list each category "
+                       "as the supplied category — amount span. Copy that exact span from the body into "
+                       "claims.text, without a lead-in or trailing delimiter. Cite each category separately."
+                       if is_budget_narrative and spec.grant_id == "TP-G02" else "")
+                    + (f" {QUALIFICATIONS_GUIDANCE}" if field.name == QUALIFICATIONS_FIELD else "")
+                    + (f" {field_guidance}" if field_guidance else ""),
                     {**context, "retry_issue_codes": feedback,
                      "retry_failure_details": failure_details, "previous_body": previous_body,
                      "preserve_numeric_evidence_ids": sorted(locked_numeric_evidence),
@@ -222,6 +291,9 @@ def generate_application(client, writer_model: str, verifier_model: str, spec: R
                 )
                 if any(key not in requirements for key in section.required_information_gaps):
                     raise StructuredResponseError("Unknown explicit requirement gap.")
+                section = recover_budget_claim_spans(section, scoped_pack)
+                if tp_g02_equity:
+                    section = move_equity_review_requests(section)
                 draft = Application(spec.grant_id, (section,), spec.budget)
                 fact_issues = validate_section(section, spec, scoped_pack)
                 deterministic = list(fact_issues)
@@ -252,6 +324,7 @@ def generate_application(client, writer_model: str, verifier_model: str, spec: R
                 try:
                     assessments, semantic, coverage = verify_semantics(
                         client, verifier_model, section, evidence, questions,
+                        facts_only=tp_g02_equity and not questions,
                     )
                     semantic_checked = True
                 except StructuredResponseError as error:
@@ -284,7 +357,7 @@ def generate_application(client, writer_model: str, verifier_model: str, spec: R
                 )
                 essential = (
                     (field.name != "Implementation" or entries[claim.evidence_id].grant_id == spec.grant_id)
-                    and (field.name != "Financial Narrative" or NUMBER.search(mask_formatting(claim.text)))
+                    and (not is_budget_narrative or NUMBER.search(mask_formatting(claim.text)))
                 ) if supported else False
                 if essential:
                     locked_claims[claim] = None

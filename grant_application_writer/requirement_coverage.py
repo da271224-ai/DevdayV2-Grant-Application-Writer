@@ -46,7 +46,9 @@ class CoverageAssessment:
 
 
 def explicit_requirements(spec: RequirementSpec, name: str) -> dict[str, str]:
-    if spec.grant_id != "TP-G01" or name != "Statement of Goals":
+    if (spec.grant_id, name) not in {
+        ("TP-G01", "Statement of Goals"), ("TP-G02", "Equity and Access"),
+    }:
         return {}
     requirement = "Proposed work must serve Miami-Dade County children and caregivers."
     for line in spec.source_text.splitlines():

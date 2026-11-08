@@ -41,7 +41,8 @@ class ClaimAssessment:
     statement_type: str = "factual_assertion"
 
 
-def verify_semantics(client, model: str, section: Section, evidence: list[dict], questions: dict[str, str]
+def verify_semantics(client, model: str, section: Section, evidence: list[dict], questions: dict[str, str], *,
+                     facts_only: bool = False,
                      ) -> tuple[tuple[ClaimAssessment, ...], list[Issue], tuple[CoverageAssessment, ...]]:
     claims = {str(index): claim for index, claim in enumerate(section.claims, 1)}
     sources = {item["evidence_id"]: item for item in evidence}
@@ -61,7 +62,9 @@ def verify_semantics(client, model: str, section: Section, evidence: list[dict],
         "Do not change citations, kinds or approval statuses. Separately assess every coverage topic exactly "
         "once, judging the body alone. These are inferred review topics, not verbatim funder requirements. "
         "Quote text for covered or partial topics. For gaps explain what is missing. "
-        "If no topics are supplied return an empty coverage list.",
+        "If no topics are supplied return an empty coverage list."
+        + (" This is a fact-only review. Return exactly \"coverage\": []. Do not infer or invent coverage topics."
+           if facts_only else ""),
         {"section_name": section.name, "body": section.body, "coverage_questions": questions,
          "coverage_question_origin": "inferred",
          "claims": [{"claim_id": key, **asdict(claim)} for key, claim in claims.items()], "evidence": evidence},
@@ -94,5 +97,6 @@ def verify_semantics(client, model: str, section: Section, evidence: list[dict],
             issues.append(Issue(severity, status, section.name, f"{quote} | {row['detail']}"))
     if seen != claims.keys():
         raise StructuredResponseError("Semantic assessment omitted a declared claim.")
-    return tuple(assessments), issues, assess_coverage(section, questions, result["coverage"])
+    coverage_rows = [] if facts_only and not questions else result["coverage"]
+    return tuple(assessments), issues, assess_coverage(section, questions, coverage_rows)
 

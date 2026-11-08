@@ -7,6 +7,10 @@ from .models import ApprovalStatus, Evidence, EvidenceKind, EvidencePack, Requir
 from .requirement_parser import read_csv
 
 
+def budget_narrative_field(grant_id: str) -> str:
+    return {"TP-G02": "Budget Narrative"}.get(grant_id, "Financial Narrative")
+
+
 def build_evidence(folder: Path, fact_sheet: Path, spec: RequirementSpec) -> EvidencePack:
     entries = {}
     for line in fact_sheet.read_text(encoding="utf-8-sig").splitlines():
@@ -73,13 +77,19 @@ def build_evidence(folder: Path, fact_sheet: Path, spec: RequirementSpec) -> Evi
             f"Reported result ({measure}): {row['synthetic_actual']} {row['unit']} on {row['measurement_date']}.",
             filename, f"data row {index}, synthetic_actual")
 
+    budget_sections = (budget_narrative_field(spec.grant_id),)
     add("BUDGET-TOTAL", EvidenceKind.PROJECT_PLAN,
         "The proposed budget totals ${:,.2f}.".format(spec.budget.total),
-        "award_budget.csv", "TOTAL / approved_amount_usd", ("Financial Narrative",))
+        "award_budget.csv", "TOTAL / approved_amount_usd", budget_sections)
     for index, (category, amount) in enumerate(spec.budget.categories.items(), start=1):
+        statement = (
+            f"{category} — ${amount:,.2f}"
+            if spec.grant_id == "TP-G02"
+            else "The proposed allocation for {} is ${:,.2f}.".format(category, amount)
+        )
         add(f"BUDGET-CATEGORY-{index}", EvidenceKind.PROJECT_PLAN,
-            "The proposed allocation for {} is ${:,.2f}.".format(category, amount),
-            "award_budget.csv", category, ("Financial Narrative",))
+            statement,
+            "award_budget.csv", category, budget_sections)
     add("PLAN-PERIOD", EvidenceKind.PROJECT_PLAN,
         f"The proposed grant period is {spec.grant_start} through {spec.grant_end}.",
         "award_budget.csv", "grant_start / grant_end",

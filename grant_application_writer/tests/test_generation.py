@@ -8,13 +8,163 @@ from unittest.mock import Mock
 
 import pytest
 
-from grant_application_writer.application_writer import generate_application
+from grant_application_writer.application_writer import generate_application, section_evidence, validate_section
 from grant_application_writer.evidence_builder import build_evidence
 from grant_application_writer.main import load_application, main
+from grant_application_writer.models import Claim, Section
 from grant_application_writer.requirement_parser import parse_requirements
 from grant_application_writer.review_exporter import export_review
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+@pytest.mark.parametrize("unsupported", [False, True])
+def test_tp_g02_equity_moves_review_request_and_keeps_fact_verification(unsupported):
+    folder = ROOT / "grant-02-family-counseling"
+    spec = parse_requirements(folder)
+    pack = build_evidence(folder, ROOT / "organization_fact_sheet.md", spec)
+    name = "Equity and Access"
+    spec = replace(spec, fields=tuple(field for field in spec.fields if field.name == name))
+    evidence = pack.entries["TF-001"]
+    assertion = "The project will offer weekend sessions."
+    request = "To assess equity and access for this proposal, please confirm the service population."
+    body = evidence.text + (" " + assertion if unsupported else "")
+    output = section(name, body + "\n\n" + request, [
+        {"text": evidence.text, "kind": evidence.kind, "evidence_id": evidence.evidence_id},
+    ])
+    output["required_information_gaps"] = ["service_population"]
+
+    def verify(context):
+        extra = ([{"claim_id": "", "status": "insufficient_evidence", "quote": assertion,
+                   "detail": "No evidence for weekend sessions."}] if unsupported else [])
+        result = reviewed(context, extra)
+        result["coverage"] = [{"topic_id": "invented", "status": "missing", "quote": "", "detail": "Unexpected."}]
+        return result
+
+    client = client_with(*([output, verify] * (3 if unsupported else 1)))
+    result = generate_application(client, "writer", "verifier", spec, pack)
+    candidate = result.application.sections[0]
+    review = result.fields[0]
+    assert candidate.body == body
+    assert candidate.recommendations_for_review == (request,)
+    assert candidate.required_information_gaps == ("service_population",)
+    assert review.semantic_checked and review.claim_assessments[0].status == "supported"
+    assert review.coverage[0].origin == "unconfigured"
+    assert [issue.code for issue in review.semantic] == (["insufficient_evidence"] if unsupported else [])
+    assert 'Return exactly "coverage": []' in client.responses.create.call_args_list[1].kwargs["instructions"]
+
+
+@pytest.mark.parametrize(("name", "failure"), [
+    ("Program Summary", "claim_not_in_body"),
+    ("Equity and Access", "funder_rule_in_body"),
+])
+def test_tp_g02_targeted_retry_keeps_claims_and_funder_rules_separate(name, failure):
+    folder = ROOT / "grant-02-family-counseling"
+    spec = parse_requirements(folder)
+    pack = build_evidence(folder, ROOT / "organization_fact_sheet.md", spec)
+    spec = replace(spec, fields=tuple(field for field in spec.fields if field.name == name))
+    item = pack.entries["TF-001"]
+    claim = {"text": item.text, "kind": item.kind, "evidence_id": item.evidence_id}
+    body = ("Tidepath provides mentoring, family counseling, and workshops."
+            if name == "Program Summary" else
+            f"The proposed work must serve Miami-Dade County children and caregivers. {item.text}")
+    corrected = section(name, item.text, [claim])
+    if name == "Equity and Access":
+        corrected["required_information_gaps"] = ["service_population"]
+    client = client_with(section(name, body, [claim]), corrected, reviewed)
+    result = generate_application(client, "writer", "verifier", spec, pack)
+    calls = client.responses.create.call_args_list
+    assert [call.kwargs["model"] for call in calls] == ["writer", "writer", "verifier"]
+    assert failure in json.loads(calls[1].kwargs["input"])["retry_issue_codes"]
+    assert result.fields[0].semantic_checked
+    assert not any(issue.status == "fail" for issue in result.fields[0].deterministic)
+    assert result.application.sections[0].claims[0].text in result.application.sections[0].body
+    if name == "Equity and Access":
+        assert result.application.sections[0].required_information_gaps == ("service_population",)
+        assert "only as a requirement" in calls[0].kwargs["instructions"]
+    else:
+        assert "verbatim in both the body and claims.text" in calls[0].kwargs["instructions"]
+
+
+@pytest.mark.parametrize(("folder_name", "field_name", "total"), [
+    ("grant-01-youth-mentoring", "Financial Narrative", "$75,000.00"),
+    ("grant-02-family-counseling", "Budget Narrative", "$90,000.00"),
+])
+def test_budget_narrative_scope_and_every_amount_are_enforced(folder_name, field_name, total):
+    folder = ROOT / folder_name
+    spec = parse_requirements(folder)
+    pack = build_evidence(folder, ROOT / "organization_fact_sheet.md", spec)
+    scoped = section_evidence(spec.grant_id, field_name, pack)
+    budget_items = [item for key, item in scoped.entries.items() if "-BUDGET-" in key]
+    assert len(budget_items) == 7
+    assert total in budget_items[0].text
+    assert not any(key in section_evidence(spec.grant_id, spec.fields[0].name, pack).entries
+                   for key in (item.evidence_id for item in budget_items))
+    claims = tuple(Claim(item.text, item.kind, item.evidence_id) for item in budget_items)
+    for omitted in claims:
+        retained = tuple(claim for claim in claims if claim != omitted)
+        draft = Section(field_name, " ".join(claim.text for claim in retained), retained)
+        failures = [issue for issue in validate_section(draft, spec, scoped) if issue.status == "fail"]
+        assert [issue.code for issue in failures] == ["missing_budget_amount"]
+        assert omitted.evidence_id in failures[0].detail
+    changed = replace(claims[1], text=claims[1].text.rsplit("$", 1)[0] + "$1.00.")
+    wrong_claims = (claims[0], changed, *claims[2:])
+    draft = Section(field_name, " ".join(claim.text for claim in wrong_claims), wrong_claims)
+    assert "numeric_mismatch" in {issue.code for issue in validate_section(draft, spec, scoped)}
+
+    body = " ".join(claim.text for claim in claims)
+    if spec.grant_id == "TP-G02":
+        assert claims[1].text == "Family services coordinator (part-time incl. benefits) — $30,000.00"
+        body = f"{claims[0].text} Proposed allocations are: " + "; ".join(
+            claim.text for claim in claims[1:]
+        ) + "."
+        legacy = replace(claims[1], text=(
+            "The proposed allocation for Family services coordinator (part-time incl. benefits) is $30,000.00."
+        ))
+        bad_draft = Section(field_name, body, (claims[0], legacy, *claims[2:]))
+        assert {issue.code for issue in validate_section(bad_draft, spec, scoped) if issue.status == "fail"} == {
+            "claim_not_in_body", "uncited_numeric",
+        }
+    else:
+        assert claims[1].text.startswith("The proposed allocation for ")
+    output = section(field_name, body, [
+        {"text": claim.text, "kind": claim.kind, "evidence_id": claim.evidence_id} for claim in claims
+    ])
+    client = client_with(output, reviewed)
+    selected = replace(spec, fields=tuple(field for field in spec.fields if field.name == field_name))
+    result = generate_application(client, "writer", "verifier", selected, pack)
+    assert result.fields[0].semantic_checked
+    assert not any(issue.status == "fail" for issue in result.fields[0].deterministic)
+    context = json.loads(client.responses.create.call_args_list[0].kwargs["input"])
+    assert context["required_budget_amount_evidence_ids"] == [claim.evidence_id for claim in claims]
+    assert context["eligible_use"]
+
+
+@pytest.mark.parametrize("wrong_amount", [False, True])
+def test_tp_g02_recovers_corrupted_budget_claim_spans(wrong_amount):
+    folder = ROOT / "grant-02-family-counseling"
+    spec = parse_requirements(folder)
+    pack = build_evidence(folder, ROOT / "organization_fact_sheet.md", spec)
+    field = next(field for field in spec.fields if field.name == "Budget Narrative")
+    spec = replace(spec, fields=(field,))
+    items = [item for key, item in pack.entries.items() if "-BUDGET-" in key]
+    body = items[0].text + " Proposed allocations are: " + "; ".join(item.text for item in items[1:]) + "."
+    if wrong_amount:
+        body = body.replace("$30,000.00", "$30,001.00")
+    output = section(field.name, body, [
+        {"text": item.text if index == 0 else item.source.record + " " + "\0" * (410 if index == 1 else index),
+         "kind": item.kind, "evidence_id": item.evidence_id}
+        for index, item in enumerate(items)
+    ])
+    responses = [output] * 3 if wrong_amount else [output, reviewed]
+    client = client_with(*responses)
+    result = generate_application(client, "writer", "verifier", spec, pack)
+    candidate = result.application.sections[0]
+    assert candidate.body == body
+    assert all(claim.text in body and "\0" not in claim.text for claim in candidate.claims)
+    failures = {issue.code for issue in result.fields[0].deterministic if issue.status == "fail"}
+    assert failures == ({"numeric_mismatch", "uncited_numeric"} if wrong_amount else set())
+    assert result.fields[0].semantic_checked is not wrong_amount
 
 
 @pytest.fixture
