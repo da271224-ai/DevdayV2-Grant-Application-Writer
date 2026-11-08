@@ -18,6 +18,31 @@ from grant_application_writer.review_exporter import export_review
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def test_tp_g03_evaluation_retry_moves_unsupported_commitments_to_missing_information():
+    folder = ROOT / "grant-03-school-workshops"
+    spec = parse_requirements(folder)
+    pack = build_evidence(folder, ROOT / "organization_fact_sheet.md", spec)
+    name = "Outcomes and Evaluation"
+    spec = replace(spec, fields=tuple(field for field in spec.fields if field.name == name))
+    item = pack.entries["TF-001"]
+    claims = [{"text": item.text, "kind": item.kind, "evidence_id": item.evidence_id}]
+    commitment = "If awarded funds, Tidepath will prepare an evaluation protocol before collecting data."
+    bad = section(name, f"{item.text} {commitment}", claims)
+    corrected = section(name, item.text, claims)
+    corrected["missing_information"] = ["Confirm the evaluation protocol and when it would be prepared."]
+    finding = {"claim_id": "", "status": "insufficient_evidence", "quote": commitment,
+               "detail": "No source supports this commitment."}
+    client = client_with(bad, lambda context: reviewed(context, [finding]), corrected, reviewed)
+    result = generate_application(client, "writer", "verifier", spec, pack)
+    calls = client.responses.create.call_args_list
+    assert "even conditionally if funded" in calls[0].kwargs["instructions"]
+    assert json.loads(calls[2].kwargs["input"])["retry_issue_codes"] == ["insufficient_evidence"]
+    candidate = result.application.sections[0]
+    assert candidate.body == item.text
+    assert candidate.missing_information == tuple(corrected["missing_information"])
+    assert result.fields[0].semantic_checked and not result.fields[0].semantic
+
+
 @pytest.mark.parametrize("unsupported", [False, True])
 def test_tp_g02_equity_moves_review_request_and_keeps_fact_verification(unsupported):
     folder = ROOT / "grant-02-family-counseling"
@@ -89,6 +114,7 @@ def test_tp_g02_targeted_retry_keeps_claims_and_funder_rules_separate(name, fail
 @pytest.mark.parametrize(("folder_name", "field_name", "total"), [
     ("grant-01-youth-mentoring", "Financial Narrative", "$75,000.00"),
     ("grant-02-family-counseling", "Budget Narrative", "$90,000.00"),
+    ("grant-03-school-workshops", "Use of Funds", "$65,000.00"),
 ])
 def test_budget_narrative_scope_and_every_amount_are_enforced(folder_name, field_name, total):
     folder = ROOT / folder_name
@@ -127,6 +153,12 @@ def test_budget_narrative_scope_and_every_amount_are_enforced(folder_name, field
         }
     else:
         assert claims[1].text.startswith("The proposed allocation for ")
+    if spec.grant_id == "TP-G03":
+        wrong_span = replace(claims[1], text=claims[1].text.replace("The proposed allocation", "The allocation"))
+        bad_draft = Section(field_name, body, (claims[0], wrong_span, *claims[2:]))
+        assert {issue.code for issue in validate_section(bad_draft, spec, scoped) if issue.status == "fail"} == {
+            "claim_not_in_body", "uncited_numeric",
+        }
     output = section(field_name, body, [
         {"text": claim.text, "kind": claim.kind, "evidence_id": claim.evidence_id} for claim in claims
     ])

@@ -194,6 +194,15 @@ def generate_application(client, writer_model: str, verifier_model: str, spec: R
     for field in selected:
         tp_g02_equity = spec.grant_id == "TP-G02" and field.name == "Equity and Access"
         field_guidance = TP_G02_FIELD_GUIDANCE.get(field.name, "") if spec.grant_id == "TP-G02" else ""
+        if (spec.grant_id, field.name) == ("TP-G03", "Outcomes and Evaluation"):
+            field_guidance = (
+                "Keep directly supported facts in the body with exact claims.text spans. If project-specific "
+                "evaluation evidence is missing, a short body limited to sourced facts is sufficient. "
+                "Put unconfirmed evaluation protocols, instruments, sample sizes, staffing, monitoring cadence, "
+                "family reporting methods, and data-security procedures in missing_information as questions "
+                "or confirmation requests. Do not promise to develop or implement them, even conditionally "
+                "if funded. Do not copy the missing-information requests into the body."
+            )
         is_budget_narrative = field.name == budget_narrative_field(spec.grant_id)
         scoped_pack = section_evidence(spec.grant_id, field.name, pack)
         entries = scoped_pack.entries
@@ -274,6 +283,10 @@ def generate_application(client, writer_model: str, verifier_model: str, spec: R
                        "as the supplied category — amount span. Copy that exact span from the body into "
                        "claims.text, without a lead-in or trailing delimiter. Cite each category separately."
                        if is_budget_narrative and spec.grant_id == "TP-G02" else "")
+                    + (" In Use of Funds, use the supplied proposed budget total and each allocation sentence "
+                       "verbatim in the body and in its own claims.text. Do not infer project spending from "
+                       "the organization's existing services."
+                       if is_budget_narrative and spec.grant_id == "TP-G03" else "")
                     + (f" {QUALIFICATIONS_GUIDANCE}" if field.name == QUALIFICATIONS_FIELD else "")
                     + (f" {field_guidance}" if field_guidance else ""),
                     {**context, "retry_issue_codes": feedback,

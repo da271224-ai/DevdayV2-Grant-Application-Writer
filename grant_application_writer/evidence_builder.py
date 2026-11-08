@@ -8,7 +8,10 @@ from .requirement_parser import read_csv
 
 
 def budget_narrative_field(grant_id: str) -> str:
-    return {"TP-G02": "Budget Narrative"}.get(grant_id, "Financial Narrative")
+    return {
+        "TP-G02": "Budget Narrative",
+        "TP-G03": "Use of Funds",
+    }.get(grant_id, "Financial Narrative")
 
 
 def build_evidence(folder: Path, fact_sheet: Path, spec: RequirementSpec) -> EvidencePack:
